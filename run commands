@@ -1,0 +1,22 @@
+"yarn dev" ---> for running server as dev dependency hai in package.json mein nodemon
+ "yarn watch"= = webpack compilation
+ "node server"  =for runninng server at port in browser
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

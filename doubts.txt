@@ -1,0 +1,18 @@
+//laravel mix nhi run ho rha issue in cart image on top-rigth-solved problem using video 3 doubts wali video in plalist
+// making of the homepage=video 4
+//
+//add back-ground color:grey in section-1
+//  hover par change color of ADD button
+// red border color ----   means app.scss wala code compile hokar run nhi horha shayad
+// "Order Now button" color not according to tailwind css
+
+//********laravel mix video no.3
+
+
+
+
+
+
+
+
+

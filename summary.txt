@@ -1,0 +1,55 @@
+!) 3rd video of  playlist ke last mein thoda  dobara revise karna hai 
+4) video start kar di h  9/4/22 
+5)************************************ make it  for hostel  bacha hua khana*********
+yarn init--> public folder:- files which are accesssing from client browser -->JS,HTML,CSS,Fonts--> img folder css folder,js folder
+*Appfolder=backend logic-->http middleware-->models folder,config folder
+http->controllers ,middlewares
+app-.config:-configuration ,authentication system
+resources folder:-templates,saas app.scss files ,js files
+resources->views :Dashboard ka page html pages
+routes:-home/login "/login"=routes
+routes->web.js,api.js (separately maintained)
+
+*****express server*****
+Library:express ,
+        Dev Dependency:-nodemon
+         yarn.lock:-jo dependencies hoti hain unka version track karne ke liye use hota hai
+
+server.js==jahan se main app run karna start hoga
+PORT= any server par jo available port ho use USE karna hai
+
+
+express:- 2-3 lines server will get created
+***to satrt : node server.js      in the tmnl
+****to use nodemon:  yarn dev    Runs all the scripts in package.json file
+******ejs:jo variables server se aarhe hain use render karne mein help karta hain
+*****for github uploadation use __  1)git init 2) git status 3) git add . =for adding all files 4) in .gitignore add files which are to be ignored by the git  
+
+
+*****use of laravel mix:- use internally webpack************* for compiling the public folders
+us eof various dependencies in the package.json file for production,development...
+********* in terminal in folder : yarn watch         == for compiling files automatically
+**make changes in the  resources->app.scss   see effect in public folder->app.css using yarn watch command
+**inline block= for making it a block we can 
+*taiwind css =for easing work of CSS
+
+****making of cart page -- do in views -->customers folder -->cart.ejs
+//** use of layouts in views for not writning the repititive code  add repititive code in this file
+// ** upto 25min of 5th video
+// making of forms of login and register using tailwind css website
+
+// transfer aall routes from server file to route folder ->web.js where all system routes are being placed
+//summary of all controllers for various routes login register home cart----->part-5 [video]
+// connecting mongodb and making models -----> Part 6 [video]
+
+
+
+
+
+
+
+
+
+
+
+

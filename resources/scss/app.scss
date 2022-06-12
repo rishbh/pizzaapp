@@ -1,0 +1,77 @@
+@import'./_variables.scss';
+
+
+
+body{
+    font-family:'Lato',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    color:$dark;
+     height:4000px;
+}
+
+nav li:last-child a {
+    background: $primary;///////for last child ke logo mein changes ke liye
+    &:hover {
+        background:$primary-hover;
+    }
+}
+nav li a {
+    transition:$smooth;
+        &:hover {
+        color:$primary;
+    }
+}
+.size{
+    background-color: $secondary;
+}
+.add-to-cart{
+    border:2px solid $primary;
+    color:$primary;
+    transition:$smooth;
+
+    &:hover{
+         background:$primary;
+         border-color:$pure;
+         color:$pure;
+    }
+}
+.section:hero{
+    background-color:$secondary;
+  }
+  .btn-primary{
+      background: $primary;
+      transition:$smooth;
+      &:hover{
+          background:$primary-hover;
+      }
+  }
+  .section:cart{
+      background:$primary;
+      .amount{
+          color:$primary;
+      }
+  }
+
+.section:login{
+    background: $primary;
+    min-height: calc(100vh);
+    
+    a{
+        color:$primary;
+        &:hover{
+            color:$primary-hover;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
