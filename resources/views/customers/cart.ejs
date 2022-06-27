@@ -1,20 +1,6 @@
 <section class="cart py-14">
-    <!--<div class="empty-cart py-14">
-        <div class=" container mx-auto py-6 text-center"> 
-            <h1 class="text-3xl font-bold mb-2">Cart Empty ,Fill it!</h1>
-            
-            <p class="text-gray-500 mb-12 "> You probably haven't ordered a pizza yet. <br>
-                To order a pizza, go to the main page.</p>
-            
-            <img class="w-2/5 mx-auto" src="\img\empty-cart.png">
 
-
-            <a href="/" class="inline-block text-red px-6 py-2 btn-primary rounded-full text-black font-bold mt-12 border-orange-300">Go to Home</a>
-
-        </div>
-    </div>
--->
-
+ <% if(session.cart) { %>
     <!-- Order placed cart page-->
     <div class="order container mx-auto w-1/2 height-3000px">
         <div class="flex iems-center border-b border-gray-300 mb-4">
@@ -25,36 +11,21 @@
 
         <div>
            <div class="pizza-list">
+            <!--applies loop here-->
+            <% for(let pizza of Object.values(session.cart.items) ) { %>
+
                <div class="items-center flex my-8">
-                   <img src="\img\pizza.png" class="w-24" alt="image of pizza">
+                   <img src="\img\<%=pizza.item.image%>" class="w-24" alt="image of pizza">
                    <div class="ml-4 flex-1 ">
-                       <h1>Pizza</h1>
-                       <span >Medium</span>
+                       <h1><%=pizza.item.name%></h1>
+                       <span ><%=pizza.item.size%></span>
                    </div>
-                   <span class="flex-1">1Pcs</span>
-                   <span class="font-bold text-large">Rs.350</span>
+                   <span class="flex-1"><%=pizza.qty%> Pcs</span>
+                   <span class="font-bold text-large">Rs. <%=(pizza.item.price)*(pizza.qty)%></span>
                </div>
 
-             <!-- second order-->
-             <div class="items-center flex my-8">
-                <img src="\img\pizza.png" class="w-24" alt="image of pizza">
-                <div class="ml-4 flex-1 ">
-                    <h1>Pizza</h1>
-                    <span >Medium</span>
-                </div>
-                <span class="flex-1">1Pcs</span>
-                <span class="font-bold text-large">Rs.350</span>
-             </div>
-             <!--third order-->
-                <div class="items-center flex my-8">
-                    <img src="\img\pizza.png" class="w-24" alt="image of pizza">
-                    <div class="ml-4 flex-1 ">
-                        <h1>Pizza</h1>
-                        <span >small</span>
-                    </div>
-                    <span class="flex-1">1Pcs</span>
-                    <span class="font-bold text-large">Rs.350</span>
-                </div>
+            <% }%>
+           
              <hr>
              <!-- Now address and Form filling-->
 
@@ -62,7 +33,7 @@
                  
                             <div>
                                 <span class="text-xl font-bold">Total Amount:</span>
-                                <span class="amount text-2xl font-bold ml-2" >Rs.1050</span>                    
+                                <span class="amount text-2xl font-bold ml-2 " >Rs.<%=session.cart.totalPrice%></span>                    
                             </div>
                   
                         <div>
@@ -92,4 +63,21 @@
         </div>
 
     </div>
+    <%} else{ %>
+    <div class="empty-cart py-14">
+        <div class=" container mx-auto py-6 text-center"> 
+            <h1 class="text-3xl font-bold mb-2">Cart Empty ,Fill it!</h1>
+            
+            <p class="text-gray-500 mb-12 "> You probably haven't ordered a pizza yet. <br>
+                To order a pizza, go to the main page.</p>
+            
+            <img class="w-2/5 mx-auto" src="\img\empty-cart.png">
+
+
+            <a href="/" class="inline-block text-red px-6 py-2 btn-primary rounded-full text-black font-bold mt-12 border-orange-300">Go to Home</a>
+
+        </div>
+    </div>
+
+<%  } %>
 </section>

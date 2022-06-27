@@ -1,5 +1,6 @@
 @import'./_variables.scss';
-
+@import '~noty/src/noty.scss';
+@import '~noty/src/themes/mint.scss';
 
 
 body{
@@ -34,6 +35,10 @@ nav li a {
          border-color:$pure;
          color:$pure;
     }
+    &:focus{
+        outline:none;
+    }
+    
 }
 .section:hero{
     background-color:$secondary;
@@ -47,9 +52,7 @@ nav li a {
   }
   .section:cart{
       background:$primary;
-      .amount{
-          color:$primary;
-      }
+     
   }
 
 .section:login{
@@ -63,8 +66,13 @@ nav li a {
         }
     }
 }
-
-
+.noty_theme__mint{
+    border-radius:75px!important;
+    padding-left:5px!important;
+}
+.amount{
+    color:$primary;
+}
 
 
 

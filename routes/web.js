@@ -12,12 +12,13 @@ function initRoutes(app){
 
 //for handling request and response
 app.get('/',  homeController().index )//2nd paarmeter is fn which takes request and sends response in homeController file
-  
   // making of cart page  route
 app.get('/cart',cartController().index)
   
   app.get('/login',authController().login)
   app.get('/register',authController().register)
+
+  app.post('/update-Cart',cartController().update)//calss function 
 
 }
 

@@ -43,9 +43,11 @@ us eof various dependencies in the package.json file for production,development.
 // connecting mongodb and making models -----> Part 6 [video]
 
 
+//part 6 53:10 min tak done sab sahi hai aage badho
+//befoer opening mongodb compass start the server form the command prompt
 
 
-
+//adding to cart functionality 1:40 min to 2:03 min
 
 
 
