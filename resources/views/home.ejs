@@ -4,8 +4,8 @@
 
         <div class=" w-1/2">
           <h6 class="text-lg"><em>Are you hungry?</em></h6>
-          <h1 class="text-5xl font-bold">Don't Wait!!</h1>
-          <button class="px-6 py-2 rounded-full text-white font-bold mt-4 btn-primary">Order Now</button>
+          <h1 class="text-3xl md:text-6xl font-bold">Don't Wait!!</h1>
+          <button class="px-6 py-2 rounded-full text-white font-bold mt-4 btn-primary"><a href="/cart">Order Now</a></button>
         </div>
 
 
@@ -19,11 +19,11 @@
 
   <section class="container mx-auto  py-8">
     <h1 class="text-xl font-bold mb-8">All Pizzas</h1>
-      <div class="grid grid-cols-4 col-gap-12 row-gap-16" >  <!-- outer wala whole carts-->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 col-gap-12 row-gap-16" >  <!-- outer wala whole carts-->
 
 <% pizzas.forEach(function(pizza){%><!--this loop runs for every elemnt of array pizzas-->
        <!--                      One Card         ************-->
-       <div class="w-64"><!--one card-->
+       <div class="w-full md:w-64"><!--one card-->
         <img src="\img\<%=pizza.image%>" class="h-40 mb-4 mx-auto">
 
         <div class="text-center"><!--for the making of price and for addind ADD button-->

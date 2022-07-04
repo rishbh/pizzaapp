@@ -13,7 +13,10 @@ const session=require('express-session');
 const flash=require('express-flash');
 const MongoDbStore = require('connect-mongo');
 //const MongoDbStore=require('connect-mongo');//giving sessin as parameter to this fn
+const passport=require('passport');
 
+//socket connection 
+const Emitter= require('events')
 
 
 
@@ -39,6 +42,11 @@ connection.once('open', () => {
 
 // })
 
+//Event emitter
+const eventEmitter=new Emitter();
+app.set('eventEmitter',eventEmitter )//key value pair
+
+
 //Session configuration
 app.use(session(
         {
@@ -53,16 +61,18 @@ app.use(session(
     }
 )
 );
+//Passport configuration
+const passportInit=require('./app/config/passport');
+ passportInit(passport);
 
+app.use(passport.initialize());
+app.use(passport.session())
 
 
 //  flash 
 app.use(flash())
-//Global middleware
-app.use((req,res,next)=>{//we can use session  from frontend also
-    res.locals.session=req.session;
-    next();
-})
+
+
 
 
 
@@ -73,6 +83,16 @@ app.use((req,res,next)=>{//we can use session  from frontend also
 // Assests
 app.use(express.static('public'))// give folder 
 app.use(express.json())
+app.use(express.urlencoded({extended:false}))
+
+//Global middleware
+app.use((req,res,next)=>{//we can use session  from frontend also
+    res.locals.session=req.session
+    res.locals.user=req.user
+    next()
+})
+
+
 //set template engine for doing repiting things like navbar footer //// layouts wala section pehle higa than routes
 app.use(expresslayout);//app
 app.set('views',path.join(__dirname,'/resources/views'))//giving path of views file
@@ -84,8 +104,36 @@ require('./routes/web')(app);// giving app as an argument
 
 
 
-app.listen(PORT, ()=>{
+const server=app.listen(PORT, ()=>{
     console.log(`Listening on the  port No :  ${PORT} `);
 })
+
+//Sockets
+const io=require('socket.io')(server)
+
+io.on('connection',(socket)=>{
+    //Join to client side //browser
+    
+    console.log("Room name for client is",socket.id)
+//Receive from clinet side join name ki event  pass karengee
+    socket.on('join',(orderId)=>{
+        console.log("Order id is:",orderId);
+        socket.join(orderId)//socket ki method
+    })
+})
+//if event emiiter get updated from sttaus Contoller of admin
+eventEmitter.on('orderUpdated',(data)=>{//room par dtaa bhejna  id and status  passed from admnn/statusController
+    io.to(`order_${data.id}`).emit('orderUpdated',data)//har order ke rrom mein emit kar rahein hain  clinet par orderUpdated 
+})
+
+
+//now doing work so that admin able to see orders in real time
+eventEmitter.on('orderPlaced',(data)=>{//room par dtaa bhejna 
+    io.to('adminRoom').emit('orderPlaced',data)
+})
+
+
+
+
 
 

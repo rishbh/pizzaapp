@@ -1,8 +1,8 @@
-<section class="cart py-14">
+<section class=" cart py-14">
 
  <% if(session.cart) { %>
     <!-- Order placed cart page-->
-    <div class="order container mx-auto w-1/2 height-3000px">
+    <div class="order container mx-auto xl:w-1/2 height-3000px">
         <div class="flex iems-center border-b border-gray-300 mb-4">
             <img src="\img\cart-black.png">
             <h1 class="font-bold text-3xl ml-3">Order Summary</h1>
@@ -35,16 +35,20 @@
                                 <span class="text-xl font-bold">Total Amount:</span>
                                 <span class="amount text-2xl font-bold ml-2 " >Rs.<%=session.cart.totalPrice%></span>                    
                             </div>
-                  
+                      <% if(user) {%>
                         <div>
-                            <form action="" class="mt-12">
+                            <form action="/orders" method="POST" class="mt-12">
                             
                               <div>
-                               <input class="border-b border-gray-400 py-2 w-1/2 mb-4 rounded-full" type="text" placeholder="   Phone number">
+                               <input 
+                               name="phone"
+                               class="border-b border-gray-400 py-2 w-1/2 mb-4 rounded-full" type="text" placeholder="   Phone number">
                               </div>
 
                             <div>
-                                <input class="border-b border-gray-400 py-2 w-1/2 mb-4 rounded-full" type="text" placeholder="   Address">
+                                <input
+                                name="address"
+                                 class="border-b border-gray-400 py-2 w-1/2 mb-4 rounded-full" type="text" placeholder="   Address">
                             </div>
                           
 
@@ -55,9 +59,10 @@
 
                             </form>
                         </div>
-
-                        <a href="/login" class="inline-block text-white text-sm font-bold mt-6 px-6 py-2 btn-primary rounded-full"   >Login To Continue</a>
-
+                      
+                           <% }else{  %>
+                        <a href="/login" class="text-xl text-white font-bold mt-6 px-6 py-2 btn-primary rounded-full" type="Submit"   >Login To Continue</a>
+                        <% } %>
              </div>
 
         </div>

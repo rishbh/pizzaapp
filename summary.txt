@@ -48,7 +48,10 @@ us eof various dependencies in the package.json file for production,development.
 
 
 //adding to cart functionality 1:40 min to 2:03 min
+//done part -6 on 27/6/22 
+//Part-7 started
 
+//Making it responsive  
 
 
 
